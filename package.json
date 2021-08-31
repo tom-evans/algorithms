@@ -1,0 +1,23 @@
+{
+  "name": "algorithms",
+  "version": "1.0.0",
+  "description": "A collection of algorithms",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \\\"No tests created yet\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tom-evans/algorithms.git"
+  },
+  "author": "Tom Evans",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tom-evans/algorithms/issues"
+  },
+  "homepage": "https://github.com/tom-evans/algorithms#readme",
+  "type": "module",
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  }
+}
