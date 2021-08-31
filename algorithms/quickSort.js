@@ -1,36 +1,30 @@
+import { generateArray } from './common/generateParams.js';
+
 let output;
 
-function populateArray() {
-    const arr = [];
-    const min = -5;
-    const max = 20;
-
-    for (let index = 0; index < 10; index++) {
-        arr.push(Math.floor(Math.random() * (max - min) + min));
-    }
-
-    return arr;
-}
-
-export function initialiseQS() {
-    const arr = populateArray();
+export function initialiseQS(logs = true) {
+    const arr = generateArray(10, -5, 20);
     const iteration = 0;
 
-    console.log(`Working array is: ${arr}`);
     quickSort(arr, 0, arr.length - 1, iteration);
-    console.log(`Sorted! \n Output: ${output}`);
+
+    if (logs) {
+        console.log(`Working array is: ${arr}`);
+        console.log(`Sorted! \n Output: ${output}`);
+    }
+
+    return output;
 }
 
-function quickSort(arr, left, right, iteration) {
+function quickSort(arr, left, right) {
     if (left >= right) {
         output = arr;
         return;
     }
     const split = partition(arr, left, right);
-    iteration++;
 
-    quickSort(arr, left, split - 1, iteration);
-    quickSort(arr, split + 1, right, iteration);
+    quickSort(arr, left, split - 1);
+    quickSort(arr, split + 1, right);
 }
 
 function partition(arr, left, right) {
