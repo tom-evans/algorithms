@@ -2,6 +2,7 @@ import { initialiseQS } from './algorithms/quickSort.js';
 import { initialiseBinarySearch } from './algorithms/shiftedBinary.js';
 import { argv } from 'process';
 import http from 'http';
+import { twoSum } from './algorithms/twoSum.js';
 
 const hostname = '127.0.0.1';
 const port = 3000;
@@ -26,6 +27,12 @@ function selectAlgorithm(args) {
             break;
         case 'binaryShift':
             initialiseBinarySearch();
+            server.close(() => {
+                console.log('Process terminated');
+            });
+            break;
+        case 'twoSum':
+            twoSum();
             server.close(() => {
                 console.log('Process terminated');
             });
